@@ -1,33 +1,23 @@
-import java.util.Scanner;
-
 public class GamePlay {
-    private static Person player;
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("What is your first name?");
-        String firstName = scanner.nextLine();
-
+        String firstName = System.console().readLine();
         System.out.println("Would you like to enter a last name? Leave blank if not.");
-        String lastName = scanner.nextLine();
+        String lastName = System.console().readLine();
 
-        if (lastName.isEmpty()) {
-            player = new Person(firstName);
-        } else {
-            player = new Person(firstName, lastName);
+        Players player = new Players(firstName, lastName.isEmpty() ? "" : lastName);
+        Hosts host = new Hosts("Bob", "Barker");
+        Turn turn = new Turn();
+
+        boolean playAgain = true;
+        while (playAgain) {
+            host.randomizeNum();
+            boolean guessedCorrectly = false;
+            while (!guessedCorrectly) {
+                guessedCorrectly = turn.takeTurn(player, host);
+            }
+            System.out.println("Play another game? (y or n)");
+            playAgain = System.console().readLine().equalsIgnoreCase("y");
         }
-
-        Numbers numbers = new Numbers();
-        numbers.generateNumber();
-
-        boolean guessedCorrectly = false;
-        while (!guessedCorrectly) {
-            System.out.println(player.getFirstName() + " " + player.getLastName() + ", guess what number I picked between 0 and 100.");
-            int guess = scanner.nextInt();
-            guessedCorrectly = numbers.compareNumber(guess);
-        }
-
-        scanner.close();
     }
 }

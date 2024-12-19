@@ -1,31 +1,19 @@
-import java.util.Random;
-
 public class Numbers {
-    private int randomNum;
+    private static int randomNum;
 
-    public int getRandomNum() {
-        return randomNum;
+    public static void generateNumber() {
+        randomNum = (int) (Math.random() * 101);
     }
 
-    public void setRandomNum(int randomNum) {
-        this.randomNum = randomNum;
-    }
-
-    public void generateNumber() {
-        Random random = new Random();
-        this.randomNum = random.nextInt(101);
-    }
-
-    public boolean compareNumber(int guess) {
+    public static boolean compareNumber(int guess) {
         if (guess == randomNum) {
             System.out.println("Winner Winner, Chicken Dinner!");
             return true;
         } else if (guess > randomNum) {
             System.out.println("I'm sorry. That guess was too high.");
-            return false;
         } else {
             System.out.println("I'm sorry. That guess was too low.");
-            return false;
         }
+        return false;
     }
 }
