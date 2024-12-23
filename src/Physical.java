@@ -2,8 +2,8 @@ import java.util.Random;
 
 public class Physical implements Award {
     // Array of physical prizes
-    private String[] prizes = {"Car", "Vacation Package", "TV", "Washer and Dryer", "Leather Couch"};
-    private Random random = new Random();
+    private static final String[] prizes = {"Car", "Vacation Package", "TV", "Washer and Dryer", "Leather Couch"}; // Mark as final
+    private final Random random = new Random(); // Mark as final
 
     // Method to get a random prize index
     public int getRandomPrize() {

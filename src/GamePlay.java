@@ -1,6 +1,6 @@
 public class GamePlay {
     // Declare an array to hold the player objects
-    private static Players[] currentPlayers = new Players[3]; // Add this line
+    private static final Players[] currentPlayers = new Players[3]; // Mark as final
 
     public static void main(String[] args) {
         // Loop to create 3 players

@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Turn {
-    private Random randomGenerator = new Random();
+    private final Random randomGenerator = new Random(); // Mark as final
 
     public boolean takeTurn(Players player, Hosts host) {
         System.out.println(host.getFirstName() + " " + host.getLastName() + " says \"" +
