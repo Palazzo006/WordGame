@@ -7,7 +7,7 @@ public class Numbers {
 
     public static boolean compareNumber(int guess) {
         if (guess == randomNum) {
-            System.out.println("That's the correct Number! Winner Winner, Chicken Dinner!");
+            System.out.println("That's the correct Number!");
             return true;
         } else if (guess > randomNum) {
             System.out.println("I'm sorry. That guess was too high.");
